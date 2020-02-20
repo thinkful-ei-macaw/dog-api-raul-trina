@@ -8,6 +8,15 @@ function getDogImage() {
     .catch(error => alert('Something went wrong. Try again later.'));
 }
 
+
+function takeNumberInput() {
+  let numberInput = $('#number input').val();
+  fetch('https://dog.ceo/api/breeds/image/random/3')
+  console.log(numberInput);
+
+}
+takeNumberInput();
+
 function displayResults(responseJson) {
   console.log(responseJson);
   //replace the existing image with the new one
@@ -18,12 +27,14 @@ function displayResults(responseJson) {
   $('.results').removeClass('hidden');
 }
 
+
 function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
     getDogImage();
   });
 }
+
 
 $(function () {
   console.log('App loaded! Waiting for submit!');
